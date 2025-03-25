@@ -25,6 +25,11 @@ export default function BarChart() {
         .domain(data.map((d) => d.Country))
         .padding(0.2);
 
+      const y = d3
+        .scaleLinear()
+        .range([height, 0])
+        .domain([0, d3.max(data, (d) => +d.Value) + 1000]);
+
       svg
         .append("g")
         .attr("transform", `translate(0,${height})`)
@@ -32,6 +37,20 @@ export default function BarChart() {
         .selectAll("text")
         .attr("transform", "translate(-10,0)rotate(-45)")
         .attr("text-anchor", "end");
+
+      svg.append("g").call(d3.axisLeft(y));
+
+      svg
+        .selectAll(".bars")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("class", "bars")
+        .attr("height", (d) => height - y(d.Value))
+        .attr("width", x.bandwidth())
+        .attr("x", (d) => x(d.Country))
+        .attr("y", (d) => y(d.Value))
+        .attr("fill", "red");
     });
   };
 

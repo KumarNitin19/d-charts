@@ -5,6 +5,8 @@ import styles from "./page.module.css";
 import PieChart from "@/graphs/PieChart";
 import ForceGraph from "@/graphs/ForceGraph";
 import BarChart from "@/graphs/BarGraph";
+import ScatterPlotGraph from "@/graphs/ScatterPlotGraph";
+import AreaGraph from "@/graphs/AreaGraph";
 
 export default function Home() {
   return (
@@ -13,6 +15,8 @@ export default function Home() {
         <ForceGraph />
         <PieChart />
         <BarChart />
+        <ScatterPlotGraph />
+        <AreaGraph />
       </div>
     </main>
   );

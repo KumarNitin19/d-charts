@@ -8,7 +8,7 @@ export default function TreeMap() {
 
   const drawAreaGraph = () => {
     const svg = d3
-      .select("#area-graph")
+      .select("#tree-map")
       .append("svg")
       .attr("height", height + margin.top + margin.bottom)
       .attr("width", width + margin.left + margin.right)
@@ -53,5 +53,5 @@ export default function TreeMap() {
     drawAreaGraph();
   }, []);
 
-  return <div id="area-graph"></div>;
+  return <div id="tree-map"></div>;
 }

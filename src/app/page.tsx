@@ -7,6 +7,7 @@ import ForceGraph from "@/graphs/ForceGraph";
 import BarChart from "@/graphs/BarGraph";
 import ScatterPlotGraph from "@/graphs/ScatterPlotGraph";
 import TreeMap from "@/graphs/TreeMap";
+import AreaGraph from "@/graphs/AreaGraph";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <BarChart />
         <ScatterPlotGraph />
         <TreeMap />
+        <AreaGraph />
       </div>
     </main>
   );

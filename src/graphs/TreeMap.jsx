@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import * as d3 from "d3";
 
-export default function AreaGraph() {
+export default function TreeMap() {
   const margin = { top: 80, right: 80, bottom: 80, left: 80 },
     height = 600 - margin.top - margin.bottom,
     width = 600 - margin.left - margin.right;

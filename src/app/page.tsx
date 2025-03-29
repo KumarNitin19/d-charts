@@ -6,7 +6,7 @@ import PieChart from "@/graphs/PieChart";
 import ForceGraph from "@/graphs/ForceGraph";
 import BarChart from "@/graphs/BarGraph";
 import ScatterPlotGraph from "@/graphs/ScatterPlotGraph";
-import AreaGraph from "@/graphs/AreaGraph";
+import TreeMap from "@/graphs/TreeMap";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
         <PieChart />
         <BarChart />
         <ScatterPlotGraph />
-        <AreaGraph />
+        <TreeMap />
       </div>
     </main>
   );

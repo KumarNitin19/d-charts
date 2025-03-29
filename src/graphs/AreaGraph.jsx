@@ -40,6 +40,21 @@ export default function AreaGraph() {
         .call(d3.axisBottom(xAxis));
 
       svg.append("g").call(d3.axisLeft(yAxis));
+
+      svg
+        .append("path")
+        .datum(data)
+        .attr(
+          "d",
+          d3
+            .area()
+            .x0((d) => xAxis(d.date))
+            .y0(yAxis(0))
+            .y1((d) => yAxis(d.value))
+        )
+        .attr("fill", "red")
+        .attr("stroke", "#000")
+        .attr("stroke-width", "1px");
     });
   };
 

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import * as d3 from "d3";
 
 const API_URL =
   "https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered_comma.csv";
@@ -16,6 +17,23 @@ export default function AreaGraph() {
       .attr("width", width + margin.left + margin.right)
       .append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+    d3.csv(API_URL, (d) => {
+      return {
+        date: d3.timeParse("%Y-%m-%d")(d.date),
+        value: +d.value,
+      };
+    }).then((data) => {
+      const xAxis = d3
+        .scaleTime()
+        .range([0, width])
+        .domain(d3.extent(data, (d) => d.date));
+
+      svg
+        .append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(xAxis));
+    });
   };
 
   useEffect(() => {

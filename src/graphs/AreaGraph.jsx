@@ -29,10 +29,17 @@ export default function AreaGraph() {
         .range([0, width])
         .domain(d3.extent(data, (d) => d.date));
 
+      const yAxis = d3
+        .scaleLinear()
+        .range([height, 0])
+        .domain([0, d3.max(data, (d) => d.value)]);
+
       svg
         .append("g")
         .attr("transform", `translate(0, ${height})`)
         .call(d3.axisBottom(xAxis));
+
+      svg.append("g").call(d3.axisLeft(yAxis));
     });
   };
 
